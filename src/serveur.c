@@ -74,7 +74,8 @@ void *thread(void *arg) {
                     }
 
                     if (ignorer_plat == 0) {
-                        strcat(menu_filtre, ligne);
+                        size_t place_restante = sizeof(menu_filtre) - strlen(menu_filtre) - 1;
+                        strncat(menu_filtre, ligne, place_restante);
                         au_moins_un_plat = 1;
                     }
                 }
