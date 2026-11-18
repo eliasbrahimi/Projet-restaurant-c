@@ -1,0 +1,9 @@
+name: Analyse de securite
+on: [push]
+jobs:
+  flawfinder:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install flawfinder
+      - run: flawfinder --minlevel=2 --error-level=4 .
